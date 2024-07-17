@@ -97,6 +97,8 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
+		
+		buildoptions { "/MT" }
 
 	filter "configurations:Debug"
 		runtime "Debug"
