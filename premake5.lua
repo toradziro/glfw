@@ -97,8 +97,6 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
-		
-		buildoptions { "/MT" }
 
 	filter "configurations:Debug"
 		runtime "Debug"
@@ -106,15 +104,18 @@ project "GLFW"
 
 	filter { "system:windows", "configurations:Debug-AS" }	
 		runtime "Debug"
+		buildoptions { "/MDd" }
 		symbols "on"
 		sanitize { "Address" }
 		flags { "NoRuntimeChecks", "NoIncrementalLink" }
 
 	filter "configurations:Release"
+		buildoptions { "/MD" }
 		runtime "Release"
 		optimize "speed"
 
     filter "configurations:Dist"
+		buildoptions { "/MD" }
 		runtime "Release"
 		optimize "speed"
         symbols "off"
